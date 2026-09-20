@@ -3,7 +3,12 @@
 package tachiyomi.presentation.core.components.m3e
 
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FloatingToolbarDefaults
 import androidx.compose.material3.HorizontalFloatingToolbar
@@ -31,7 +36,11 @@ fun ExpressiveFloatingToolbar(
     content: @Composable RowScope.() -> Unit,
 ) = HorizontalFloatingToolbar(
     expanded = expanded,
-    modifier = modifier.padding(horizontal = FloatingToolbarDefaults.ScreenOffset),
+    // The toolbar is docked at the bottom, so it must clear the system navigation bar. The
+    // scaffold does not do it for the bottom bar slot.
+    modifier = modifier
+        .padding(horizontal = FloatingToolbarDefaults.ScreenOffset)
+        .windowInsetsPadding(WindowInsets.navigationBars.only(WindowInsetsSides.Bottom)),
     leadingContent = leadingContent,
     trailingContent = trailingContent,
     content = content,
