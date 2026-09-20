@@ -278,7 +278,9 @@ object HomeScreen : Screen() {
                 }
             },
             icon = { NavigationIconItem(tab) },
-            label = if (alwaysShowLabel) {
+            // The rail shows its labels when it is expanded, and the label preference decides the
+            // rest: a collapsed rail with the preference off shows the icon only.
+            label = if (railExpanded || alwaysShowLabel) {
                 {
                     Text(
                         text = tab.options.title,
