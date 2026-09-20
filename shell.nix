@@ -28,8 +28,10 @@ let
       "35.0.0"
     ];
     platformVersions = [ "36" ];
-    includeEmulator = false;
-    includeSystemImages = false;
+    includeEmulator = true;
+    includeSystemImages = true;
+    systemImageTypes = [ "default" ];
+    abiVersions = [ "x86_64" ];
     includeSources = false;
     includeNDK = false;
     includeCmake = false;
@@ -55,15 +57,22 @@ pkgs.mkShell {
   AAPT2_OVERRIDE = "${androidHome}/build-tools/36.0.0/aapt2";
 
   shellHook = ''
-    for dir in "$ANDROID_HOME"/cmdline-tools/*/bin "$ANDROID_HOME/platform-tools"; do
+    for dir in "$ANDROID_HOME"/cmdline-tools/*/bin "$ANDROID_HOME/platform-tools" "$ANDROID_HOME/emulator"; do
       PATH="$dir:$PATH"
     done
     export PATH
+
+    # AVDs must be writable; the SDK is a store path. Do NOT override ANDROID_USER_HOME: the
+    # debug keystore used to sign the APK lives in $HOME/.android, and a different user home
+    # produces a different key, so an update install fails with
+    # INSTALL_FAILED_UPDATE_INCOMPATIBLE.
+    export ANDROID_AVD_HOME=''${ANDROID_AVD_HOME:-/mnt/2tb-ext4/.android-avd}
 
     echo "komikku-M3E Android shell"
     echo "  JAVA_HOME=$JAVA_HOME"
     echo "  ANDROID_HOME=$ANDROID_HOME"
     echo "  aapt2 override: $AAPT2_OVERRIDE"
+    echo "  AVD home: $ANDROID_AVD_HOME"
     echo "  gradle: pass -Pandroid.aapt2FromMavenOverride=\$AAPT2_OVERRIDE"
   '';
 }
