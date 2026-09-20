@@ -91,69 +91,69 @@ fun MangaBottomActionMenu(
                 if (isActive) confirm[toConfirmIndex] = false
             }
         }
-                if (onBookmarkClicked != null) {
-                    Button(
-                        title = stringResource(MR.strings.action_bookmark),
-                        icon = Icons.Outlined.BookmarkAdd,
-                        toConfirm = confirm[0],
-                        onLongClick = { onLongClickItem(0) },
-                        onClick = onBookmarkClicked,
-                    )
-                }
-                if (onRemoveBookmarkClicked != null) {
-                    Button(
-                        title = stringResource(MR.strings.action_remove_bookmark),
-                        icon = Icons.Outlined.BookmarkRemove,
-                        toConfirm = confirm[1],
-                        onLongClick = { onLongClickItem(1) },
-                        onClick = onRemoveBookmarkClicked,
-                    )
-                }
-                if (onMarkAsReadClicked != null) {
-                    Button(
-                        title = stringResource(MR.strings.action_mark_as_read),
-                        icon = Icons.Outlined.DoneAll,
-                        toConfirm = confirm[2],
-                        onLongClick = { onLongClickItem(2) },
-                        onClick = onMarkAsReadClicked,
-                    )
-                }
-                if (onMarkAsUnreadClicked != null) {
-                    Button(
-                        title = stringResource(MR.strings.action_mark_as_unread),
-                        icon = Icons.Outlined.RemoveDone,
-                        toConfirm = confirm[3],
-                        onLongClick = { onLongClickItem(3) },
-                        onClick = onMarkAsUnreadClicked,
-                    )
-                }
-                if (onMarkPreviousAsReadClicked != null) {
-                    Button(
-                        title = stringResource(MR.strings.action_mark_previous_as_read),
-                        icon = ImageVector.vectorResource(R.drawable.ic_done_prev_24dp),
-                        toConfirm = confirm[4],
-                        onLongClick = { onLongClickItem(4) },
-                        onClick = onMarkPreviousAsReadClicked,
-                    )
-                }
-                if (onDownloadClicked != null) {
-                    Button(
-                        title = stringResource(MR.strings.action_download),
-                        icon = Icons.Outlined.Download,
-                        toConfirm = confirm[5],
-                        onLongClick = { onLongClickItem(5) },
-                        onClick = onDownloadClicked,
-                    )
-                }
-                if (onDeleteClicked != null) {
-                    Button(
-                        title = stringResource(MR.strings.action_delete),
-                        icon = Icons.Outlined.Delete,
-                        toConfirm = confirm[6],
-                        onLongClick = { onLongClickItem(6) },
-                        onClick = onDeleteClicked,
-                    )
-                }
+        if (onBookmarkClicked != null) {
+            Button(
+                title = stringResource(MR.strings.action_bookmark),
+                icon = Icons.Outlined.BookmarkAdd,
+                toConfirm = confirm[0],
+                onLongClick = { onLongClickItem(0) },
+                onClick = onBookmarkClicked,
+            )
+        }
+        if (onRemoveBookmarkClicked != null) {
+            Button(
+                title = stringResource(MR.strings.action_remove_bookmark),
+                icon = Icons.Outlined.BookmarkRemove,
+                toConfirm = confirm[1],
+                onLongClick = { onLongClickItem(1) },
+                onClick = onRemoveBookmarkClicked,
+            )
+        }
+        if (onMarkAsReadClicked != null) {
+            Button(
+                title = stringResource(MR.strings.action_mark_as_read),
+                icon = Icons.Outlined.DoneAll,
+                toConfirm = confirm[2],
+                onLongClick = { onLongClickItem(2) },
+                onClick = onMarkAsReadClicked,
+            )
+        }
+        if (onMarkAsUnreadClicked != null) {
+            Button(
+                title = stringResource(MR.strings.action_mark_as_unread),
+                icon = Icons.Outlined.RemoveDone,
+                toConfirm = confirm[3],
+                onLongClick = { onLongClickItem(3) },
+                onClick = onMarkAsUnreadClicked,
+            )
+        }
+        if (onMarkPreviousAsReadClicked != null) {
+            Button(
+                title = stringResource(MR.strings.action_mark_previous_as_read),
+                icon = ImageVector.vectorResource(R.drawable.ic_done_prev_24dp),
+                toConfirm = confirm[4],
+                onLongClick = { onLongClickItem(4) },
+                onClick = onMarkPreviousAsReadClicked,
+            )
+        }
+        if (onDownloadClicked != null) {
+            Button(
+                title = stringResource(MR.strings.action_download),
+                icon = Icons.Outlined.Download,
+                toConfirm = confirm[5],
+                onLongClick = { onLongClickItem(5) },
+                onClick = onDownloadClicked,
+            )
+        }
+        if (onDeleteClicked != null) {
+            Button(
+                title = stringResource(MR.strings.action_delete),
+                icon = Icons.Outlined.Delete,
+                toConfirm = confirm[6],
+                onLongClick = { onLongClickItem(6) },
+                onClick = onDeleteClicked,
+            )
+        }
     }
 }
 
@@ -266,131 +266,131 @@ fun LibraryBottomActionMenu(
                 if (isActive) confirm[toConfirmIndex] = false
             }
         }
-                Button(
-                    title = stringResource(MR.strings.action_move_category),
-                    icon = Icons.AutoMirrored.Outlined.Label,
-                    toConfirm = confirm[0],
-                    onLongClick = { onLongClickItem(0) },
-                    onClick = onChangeCategoryClicked,
+        Button(
+            title = stringResource(MR.strings.action_move_category),
+            icon = Icons.AutoMirrored.Outlined.Label,
+            toConfirm = confirm[0],
+            onLongClick = { onLongClickItem(0) },
+            onClick = onChangeCategoryClicked,
+        )
+        Button(
+            title = stringResource(MR.strings.action_mark_as_read),
+            icon = Icons.Outlined.DoneAll,
+            toConfirm = confirm[1],
+            onLongClick = { onLongClickItem(1) },
+            onClick = onMarkAsReadClicked,
+        )
+        Button(
+            title = stringResource(MR.strings.action_mark_as_unread),
+            icon = Icons.Outlined.RemoveDone,
+            toConfirm = confirm[2],
+            onLongClick = { onLongClickItem(2) },
+            onClick = onMarkAsUnreadClicked,
+        )
+        if (onDownloadClicked != null) {
+            var downloadExpanded by remember { mutableStateOf(false) }
+            Button(
+                title = stringResource(MR.strings.action_download),
+                icon = Icons.Outlined.Download,
+                toConfirm = confirm[3],
+                onLongClick = { onLongClickItem(3) },
+                onClick = { downloadExpanded = !downloadExpanded },
+            ) {
+                DownloadDropdownMenu(
+                    expanded = downloadExpanded,
+                    onDismissRequest = { downloadExpanded = false },
+                    onDownloadClicked = onDownloadClicked,
+                    offset = BottomBarMenuDpOffset,
                 )
-                Button(
-                    title = stringResource(MR.strings.action_mark_as_read),
-                    icon = Icons.Outlined.DoneAll,
-                    toConfirm = confirm[1],
-                    onLongClick = { onLongClickItem(1) },
-                    onClick = onMarkAsReadClicked,
-                )
-                Button(
-                    title = stringResource(MR.strings.action_mark_as_unread),
-                    icon = Icons.Outlined.RemoveDone,
-                    toConfirm = confirm[2],
-                    onLongClick = { onLongClickItem(2) },
-                    onClick = onMarkAsUnreadClicked,
-                )
-                if (onDownloadClicked != null) {
-                    var downloadExpanded by remember { mutableStateOf(false) }
-                    Button(
-                        title = stringResource(MR.strings.action_download),
-                        icon = Icons.Outlined.Download,
-                        toConfirm = confirm[3],
-                        onLongClick = { onLongClickItem(3) },
-                        onClick = { downloadExpanded = !downloadExpanded },
-                    ) {
-                        DownloadDropdownMenu(
-                            expanded = downloadExpanded,
-                            onDismissRequest = { downloadExpanded = false },
-                            onDownloadClicked = onDownloadClicked,
-                            offset = BottomBarMenuDpOffset,
+            }
+        }
+        // SY -->
+        val configuration = LocalConfiguration.current
+        val isTabletUi = remember { configuration.isTabletUi() }
+        // SY <--
+        // KMK -->
+        if (onDownloadClicked == null || isTabletUi) {
+            Button(
+                title = stringResource(KMR.strings.action_update),
+                icon = Icons.Outlined.Refresh,
+                toConfirm = confirm[4],
+                onLongClick = { onLongClickItem(4) },
+                onClick = onSelectionUpdateClicked,
+            )
+        }
+        if (isTabletUi) {
+            // KMK <--
+            Button(
+                title = stringResource(MR.strings.migrate),
+                icon = Icons.Outlined.SwapCalls,
+                toConfirm = confirm[5],
+                onLongClick = { onLongClickItem(5) },
+                onClick = onMigrateClicked,
+            )
+        }
+        var overflowMenuOpen by remember { mutableStateOf(false) }
+        Button(
+            title = stringResource(MR.strings.label_more),
+            icon = Icons.Outlined.MoreVert,
+            toConfirm = confirm[6],
+            onLongClick = { onLongClickItem(6) },
+            onClick = { overflowMenuOpen = true },
+        ) {
+            DropdownMenu(
+                expanded = overflowMenuOpen,
+                onDismissRequest = { overflowMenuOpen = false },
+                offset = BottomBarMenuDpOffset,
+            ) {
+                // KMK -->
+                if (!isTabletUi) {
+                    if (onDownloadClicked != null) {
+                        DropdownMenuItem(
+                            text = { Text(stringResource(KMR.strings.action_update)) },
+                            onClick = onSelectionUpdateClicked,
                         )
                     }
-                }
-                // SY -->
-                val configuration = LocalConfiguration.current
-                val isTabletUi = remember { configuration.isTabletUi() }
-                // SY <--
-                // KMK -->
-                if (onDownloadClicked == null || isTabletUi) {
-                    Button(
-                        title = stringResource(KMR.strings.action_update),
-                        icon = Icons.Outlined.Refresh,
-                        toConfirm = confirm[4],
-                        onLongClick = { onLongClickItem(4) },
-                        onClick = onSelectionUpdateClicked,
-                    )
-                }
-                if (isTabletUi) {
                     // KMK <--
-                    Button(
-                        title = stringResource(MR.strings.migrate),
-                        icon = Icons.Outlined.SwapCalls,
-                        toConfirm = confirm[5],
-                        onLongClick = { onLongClickItem(5) },
+                    DropdownMenuItem(
+                        text = { Text(stringResource(MR.strings.migrate)) },
                         onClick = onMigrateClicked,
                     )
                 }
-                var overflowMenuOpen by remember { mutableStateOf(false) }
-                Button(
-                    title = stringResource(MR.strings.label_more),
-                    icon = Icons.Outlined.MoreVert,
-                    toConfirm = confirm[6],
-                    onLongClick = { onLongClickItem(6) },
-                    onClick = { overflowMenuOpen = true },
-                ) {
-                    DropdownMenu(
-                        expanded = overflowMenuOpen,
-                        onDismissRequest = { overflowMenuOpen = false },
-                        offset = BottomBarMenuDpOffset,
-                    ) {
-                        // KMK -->
-                        if (!isTabletUi) {
-                            if (onDownloadClicked != null) {
-                                DropdownMenuItem(
-                                    text = { Text(stringResource(KMR.strings.action_update)) },
-                                    onClick = onSelectionUpdateClicked,
-                                )
-                            }
-                            // KMK <--
-                            DropdownMenuItem(
-                                text = { Text(stringResource(MR.strings.migrate)) },
-                                onClick = onMigrateClicked,
-                            )
-                        }
-                        DropdownMenuItem(
-                            text = { Text(stringResource(MR.strings.action_delete)) },
-                            onClick = onDeleteClicked,
-                        )
-                        // KMK -->
-                        DropdownMenuItem(
-                            text = { Text(stringResource(SYMR.strings.merge)) },
-                            onClick = onMergeClicked,
-                        )
-                        if (onClickCleanTitles != null) {
-                            DropdownMenuItem(
-                                text = { Text(stringResource(SYMR.strings.action_clean_titles)) },
-                                onClick = onClickCleanTitles,
-                            )
-                        }
-                        if (onClickCollectRecommendations != null) {
-                            DropdownMenuItem(
-                                text = { Text(stringResource(SYMR.strings.rec_search_short)) },
-                                onClick = onClickCollectRecommendations,
-                            )
-                        }
-                        if (onClickAddToMangaDex != null) {
-                            DropdownMenuItem(
-                                text = { Text(stringResource(SYMR.strings.mangadex_add_to_follows)) },
-                                onClick = onClickAddToMangaDex,
-                            )
-                        }
-                        if (onClickResetInfo != null) {
-                            DropdownMenuItem(
-                                text = { Text(text = stringResource(SYMR.strings.reset_info)) },
-                                onClick = onClickResetInfo,
-                            )
-                        }
-                        // KMK <--
-                    }
+                DropdownMenuItem(
+                    text = { Text(stringResource(MR.strings.action_delete)) },
+                    onClick = onDeleteClicked,
+                )
+                // KMK -->
+                DropdownMenuItem(
+                    text = { Text(stringResource(SYMR.strings.merge)) },
+                    onClick = onMergeClicked,
+                )
+                if (onClickCleanTitles != null) {
+                    DropdownMenuItem(
+                        text = { Text(stringResource(SYMR.strings.action_clean_titles)) },
+                        onClick = onClickCleanTitles,
+                    )
                 }
+                if (onClickCollectRecommendations != null) {
+                    DropdownMenuItem(
+                        text = { Text(stringResource(SYMR.strings.rec_search_short)) },
+                        onClick = onClickCollectRecommendations,
+                    )
+                }
+                if (onClickAddToMangaDex != null) {
+                    DropdownMenuItem(
+                        text = { Text(stringResource(SYMR.strings.mangadex_add_to_follows)) },
+                        onClick = onClickAddToMangaDex,
+                    )
+                }
+                if (onClickResetInfo != null) {
+                    DropdownMenuItem(
+                        text = { Text(text = stringResource(SYMR.strings.reset_info)) },
+                        onClick = onClickResetInfo,
+                    )
+                }
+                // KMK <--
+            }
+        }
     }
 }
 
