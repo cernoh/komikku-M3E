@@ -67,24 +67,7 @@ class MangaDexFollowsScreen(private val sourceId: Long) : Screen() {
         Scaffold(
             topBar = { scrollBehavior ->
                 // KMK -->
-                if (bulkFavoriteState.selectionMode) {
-                    BulkSelectionToolbar(
-                        selectedCount = bulkFavoriteState.selection.size,
-                        isRunning = bulkFavoriteState.isRunning,
-                        onClickClearSelection = bulkFavoriteScreenModel::toggleSelectionMode,
-                        onChangeCategoryClick = bulkFavoriteScreenModel::addFavorite,
-                        onSelectAll = {
-                            mangaList.itemSnapshotList.items
-                                .map { it.value.first }
-                                .forEach { bulkFavoriteScreenModel.select(it) }
-                        },
-                        onReverseSelection = {
-                            mangaList.itemSnapshotList.items
-                                .map { it.value.first }
-                                .let { bulkFavoriteScreenModel.reverseSelection(it) }
-                        },
-                    )
-                } else {
+                if (!bulkFavoriteState.selectionMode) {
                     // KMK <--
                     BrowseSourceSimpleToolbar(
                         title = stringResource(SYMR.strings.mangadex_follows),
