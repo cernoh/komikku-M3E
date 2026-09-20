@@ -82,6 +82,28 @@ class MangaDexFollowsScreen(private val sourceId: Long) : Screen() {
                     )
                 }
             },
+            bottomBar = {
+                // KMK -->
+                if (bulkFavoriteState.selectionMode) {
+                    BulkSelectionToolbar(
+                        selectedCount = bulkFavoriteState.selection.size,
+                        isRunning = bulkFavoriteState.isRunning,
+                        onClickClearSelection = bulkFavoriteScreenModel::toggleSelectionMode,
+                        onChangeCategoryClick = bulkFavoriteScreenModel::addFavorite,
+                        onSelectAll = {
+                            mangaList.itemSnapshotList.items
+                                .map { it.value.first }
+                                .forEach { bulkFavoriteScreenModel.select(it) }
+                        },
+                        onReverseSelection = {
+                            mangaList.itemSnapshotList.items
+                                .map { it.value.first }
+                                .let { bulkFavoriteScreenModel.reverseSelection(it) }
+                        },
+                    )
+                }
+                // KMK <--
+            },
             snackbarHost = {
                 SnackbarHost(hostState = snackbarHostState)
             },
